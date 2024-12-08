@@ -21,7 +21,7 @@ namespace bitsTests
         [Test]
         public void GetAllTest()
         {
-            recipes = dbContext.Recipes.OrderBy(r => r.Name).ToList();
+            recipes = dbContext.Recipes.OrderBy(r => r.RecipeId).ToList();
             Assert.AreEqual(4, recipes.Count);
             Assert.AreEqual(1, recipes[0].RecipeId);
 
@@ -37,14 +37,14 @@ namespace bitsTests
         }
 
         [Test]
-        public void GetWithInvoicesTest()
+        public void GetWithIngredientsTest()
         {
             r = dbContext.Recipes.Include("RecipeIngredients").Where(re => re.RecipeId == 1).SingleOrDefault();
             //c = dbContext.Customers.Include("Invoices").Where(c => c.CustomerId == 20).SingleOrDefault();
+            TestContext.WriteLine("Ingredients: " + r.RecipeIngredients);
             Assert.IsNotNull(r);
             Assert.AreEqual("Fuzzy Tales Juicy IPA", r.Name);
             Assert.AreEqual(13, r.RecipeIngredients.Count);
-            Console.WriteLine(r);
         }
     }
 }
