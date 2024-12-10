@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Information Page</title>
+    <link rel="stylesheet" type="text/css" href="styles/semantic-ui/semantic.min.css">
+</head>
+<body>
+    <div class="ui segment">
+        <div class="ui three column grid">
+            <div class="ui two wide column"></div>
+            <div class="ui twelve wide column">
+                <h1 class="ui dividing header">Scheduled Brews</h1><!--Add the scheduled brews right here-->
+                <table class="table table-bordered border-dark">
+                    <thead >
+                        <tr>
+                            <th scope="col">Batch Number</th>
+                            <th scope="col">Recipe Name</th>
+                            <th scope="col">Batch Size</th>
+                            <th scope="col">Needed Ingredients</th>
+                            <th scope="col">Scheduled Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="batchDisplay">
+                        <!-- Batch information goes here -->
+                    </tbody>
+                </table>
+                <form class="ui form" id="batchForm">
+                    <div class="ui three column grid">
+                        <div class="ui nine wide column"><h2 class="ui heading">Schedule or Unschedule a Brew</h2></div>
+                        <div class="ui three wide right aligned column">
+                            <input type="number" id="batchId" placeholder="batch id" required/>
+                        </div>
+                    </div>
+                    <div class="ui two column grid">
+                        <div class="ui twelve wide column">
+                            <div class="field">
+                                <label>Recipe Name</label>
+                                <div class="field">
+                                    <select class="ui fluid dropdown" id="recipeId">
+                                        <option value="1">Fuzzy Tales Juicy IPA</option>
+                                        <option value="2">Krampus' Special Sauce</option>
+                                        <option value="3">Cascade Orange Pale Ale</option>
+                                        <option value="4">Citra-Motu Magic Haze</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                            <label>Batch Size</label>
+                                <div class="field">
+                                    <input type="number" id="batchSize" required>
+                                </div>
+                            </div>
+                            <div class="three fields">
+                                <div class="ten wide field">
+                                    <label>Schedule Start Date</label>
+                                    <input type="datetime-local" id="scheduleDate" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui four wide center aligned column">
+                            <div class="ui vertical large buttons">
+                                <button class="ui button" id="deleteBtn">Delete</button>
+                                <button class="ui button" id="saveBtn">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="ui two wide column"></div>
+        </div>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="styles/semantic-ui/semantic.min.js"></script>
+    <script src="js/schedulebrew.js"></script>
+</body>
+</html>
